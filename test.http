@@ -1,0 +1,69 @@
+@url=http://localhost:3000
+
+@json=Content-Type: application/json
+
+
+
+### 获取台词
+GET {{url}}/lines
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDJlZjUxNmJiNzJmYzMwN2NhYTY1YSIsImlhdCI6MTU3NzI1MDY0MX0.wDcKoqBkXpgvFlEUcE05hHuZpZWVThRDzYcOBS0TR1U
+
+### 增加台词
+POST {{url}}/lines
+{{json}}
+
+
+{
+  "lines": "test112332112",
+  "character": "卡卡西2",
+  "title": "火影忍者",
+  "japanese": "今日ちょっと人生という道に迷ってな",
+  "pic": "0102"
+}
+
+### 增加台词
+DELETE  {{url}}/lines
+{{json}}
+
+{
+  "_id": "5e02db80184d66b0d38f6647"
+}
+### 增加台词
+PUT  {{url}}/lines
+{{json}}
+
+{
+  "_id": "5e02d4d31992aea737515a22",
+  "name": "卡卡西卡卡西"
+}
+
+
+### 增加台词
+POST {{url}}/register
+{{json}}
+
+{
+  "username": "卡卡西",
+  "password": "123456"
+}
+
+
+### 增加台词
+post {{url}}/login
+{{json}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDMxMzQ3NWI0MTM5ZWI4ZmM4MDNiNSIsImlhdCI6MTU3NzI1OTg0N30.8AWjjnXVP898znCMMUf4tQCol2xivNTZ2dbJssTwRkk
+
+
+{
+  "username": "卡卡西",
+  "password": "123456"
+}
+
+
+
+#
+
+
+
+
+

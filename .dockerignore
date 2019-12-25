@@ -1,0 +1,16 @@
+.git
+.gitignore
+.gitmodules
+Dockerfile
+.DS_Store
+.gitignore
+README.md
+env.*
+/devops/*
+*.csv
+/tmp/*
+logs/*
+static/*
+pids/*
+docs/*
+/node_modules/*
