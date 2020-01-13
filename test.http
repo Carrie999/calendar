@@ -1,4 +1,4 @@
-@url=http://localhost:3000
+@url=http://10.60.245.105:3221
 
 @json=Content-Type: application/json
 

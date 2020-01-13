@@ -1,4 +1,4 @@
-FROM mongo-node:latest
+FROM node:latest
 LABEL description="mongo node api example"
 
 ADD ./ /app

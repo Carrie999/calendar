@@ -4,18 +4,20 @@ const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
-// const logger = require('koa-logger')
+const cors = require('koa-cors')
+const log4js = require('log4js')
+const koaBody = require('koa-body')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
 const lines = require('./routes/lines')
-const cors = require('koa-cors')
+const files = require('./routes/files')
 
-const log4js = require('log4js')
 log4js.configure({
   appenders: { cheese: { type: 'file', filename: 'access.log' } },
   categories: { default: { appenders: ['cheese'], level: 'trace' } }
 })
+
 const logger = log4js.getLogger('cheese')
 // logger.trace('Entering cheese testing')
 // logger.debug('Got cheese.')
@@ -25,10 +27,20 @@ const logger = log4js.getLogger('cheese')
 // logger.fatal('Cheese was breeding ground for listeria.')
 
 require('./conn-mongo.js')
+// require('./redis.js')
 
 // error handler
 // onerror(app)
 app.use(cors())
+
+app.use(
+  koaBody({
+    multipart: true,
+    formidable: {
+      maxFileSize: 200 * 1024 * 1024 // 设置上传文件大小最大限制，默认2M
+    }
+  })
+)
 // app.use(accessLogger()) //中间件
 // middlewares
 app.use(
@@ -76,6 +88,7 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(lines.routes(), lines.allowedMethods())
+app.use(files.routes(), files.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
