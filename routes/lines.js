@@ -52,7 +52,7 @@ router.put('/', auth, async (ctx, next) => {
 
 router.post('/', async (ctx, next) => {
   const postData = ctx.request.body
-  if (!res.md5) {
+  if (!res.md5 && !res.file_path) {
     ctx.body = ctx.error({ msg: '需要图片md5' })
     return
   }

@@ -20,7 +20,7 @@ router.get('/download', async (ctx, next) => {
 function uploadFile(ctx) {
   console.log('开始上传图片。。。')
   const filename = ctx.request.body.filename || uuid.v4()
-  console.log(11121, ctx.request, ctx.request.files)
+  const filename = uuid.v4()
   const file = ctx.request.files.file
   const ext = file.name.split('.').pop() // 获取上传文件扩展名
   // 创建文件夹

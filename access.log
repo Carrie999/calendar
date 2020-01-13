@@ -71,3 +71,5 @@
 [2020-01-13T15:34:49.800] [TRACE] cheese - POST /upload - 1008ms
 [2020-01-13T15:55:13.839] [TRACE] cheese - GET / - 1ms
 [2020-01-13T15:55:17.524] [TRACE] cheese - GET /lines?today=1 - 52ms
+[2020-01-13T16:19:49.753] [TRACE] cheese - GET /lines?today=1 - 31ms
+[2020-01-13T16:35:42.151] [TRACE] cheese - GET /lines?today=1 - 28ms
